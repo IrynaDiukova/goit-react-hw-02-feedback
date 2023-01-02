@@ -1,39 +1,18 @@
 import PropTypes from 'prop-types';
+import css from './Statistics.module.css';
 
 
-const Statistics = ({ good, neutral, bad }) => {
+
+const Statistics = ({ title, good, neutral, bad, total, positivePercentage }) => {
     
     return (
-        <div className="statistics">
-           
-            {/* <h1>Please leave feedback</h1>
-            <button 
-            type="button" 
-            className="statistics__btn"
-            onClick={this.handleButtonGood}
-            name = "good">
-            Good
-            </button>
-            <button 
-            type="button"
-            className="statistics__btn" 
-            onClick={this.handleButtonNeutral}
-            name = "neutral">
-            Neutral</button>
-            <button  
-            type="button" 
-            className="statistics__btn" 
-            onClick={this.handleButtonBad}
-            name="bad">
-            Bad</button> */}
-                        
-            <div> 
-                <h2>Statistics</h2>
-                <p>Good:{good}</p>
-                <p>Neutral:{neutral}</p>
-                <p>Bad:{bad}</p>
-            </div>
-        </div>
+        <ul className={css.statistics}>
+            <li className={css.statistics__item}>Good: {good}</li>
+            <li className={css.statistics__item}>Neutral: {neutral}</li>
+            <li className={css.statistics__item}>Bad: {bad}</li>
+            <li className={css.statistics__item}>Total: {total}</li>
+            <li className={css.statistics__item}>Positive feedback: {positivePercentage}%</li>
+        </ul>
     )
 }
 
@@ -41,6 +20,8 @@ Statistics.propTypes = {
         good: PropTypes.number.isRequired,
         neutral: PropTypes.number.isRequired,
         bad: PropTypes.number.isRequired,
+        total: PropTypes.number.isRequired,
+        positivePercentage: PropTypes.number.isRequired
 }
 
 export default Statistics;
